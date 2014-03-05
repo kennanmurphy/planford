@@ -45,6 +45,7 @@ app.get('/home',home.viewHome);
 app.get('/requirement/:requirement',requirement.viewRequirement);
 app.get('/requirement/:requirement/:category',category.viewCategory);
 app.get('/requirement/:requirement/:category/Electives',category.viewElectives);
+app.get('/requirement/:requirement/:category/all', category.viewAll);
 app.get('/summary', summary.view);
 app.get('/debug',home.debug);
 

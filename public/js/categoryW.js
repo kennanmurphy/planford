@@ -15,6 +15,7 @@ function initializePage(){
 		console.log(this.id);
 		console.log("Icon clicked");
 		console.log(".test #" + this.id);
+		ga("send", "event", "course", "click");
 		$("#" + this.id).toggleClass("classPicked");
 		$(".button #" + this.id).toggleClass("btn-danger");
 	});
