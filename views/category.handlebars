@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>TrackStanford-Category</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/css/jumbotron.css" rel="stylesheet">
+    <link href="/css/icon_positioning.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/categoryW.js"></script>
+  </head>
+
+  <body>
+    {{>navbar}}
+  
+    <!-- {{#if on_elective}}
+      <ul class="nav nav-tabs">
+        <li><a href="/requirement/{{requirement}}/{{category}}">Required</a></li>
+        <li class="active"><a href="#">Electives</a></li>
+      </ul>
+    {{else}}  
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Required</a></li>
+        <li><a href="./{{category}}/Electives">Electives</a></li>
+      </ul>
+    {{/if}} -->
+  
+    <div >
+      <h3 style="text-align:center;">{{requirement}} : {{category}} 
+          <button class="btn btn-default btn-xs" type="button"data-toggle="modal" data-target="#details-modal" id='details'>
+            <i class="fa fa-question"></i> Details
+          </button>
+          <br/>
+          <small>{{miniDescription}}</small>
+      </h3>
+      <hr/>
+    </div>
+
+	<!-- this is a comment in HTML -->
+	<div class="container">
+    
+
+
+
+
+    <div class="details_button">
+      
+
+      <!-- Modal -->
+      <div class="modal fade" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">{{category}} Requirement Details</h4>
+            </div>
+            <div class="modal-body">
+              {{about}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+    {{#each classes}}
+      <div class="button">
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-default btn-md class largeButton" id="{{this}}" data-toggle="modal" data-target="{{this}}-modal">
+            {{this}}
+          </button>
+          <br/>
+          <!-- Button trigger modal -->
+          <button class="btn btn-default thinButton info padding" data-toggle="modal" data-target="#{{this}}-modal" id='info-{{this}}'>
+            <i class="fa fa-info"></i> Info
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{this}}-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+    {{#each electives}}
+      <div class="button">
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-default btn-md class largeButton" id="{{this}}" data-toggle="modal" data-target="{{this}}-modal">
+            {{this}}
+          </button>
+          <br/>
+          <!-- Button trigger modal -->
+          <button class="btn btn-default thinButton info padding" data-toggle="modal" data-target="#{{this}}-modal" id='info-{{this}}'>
+            <i class="fa fa-info"></i> Info
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{this}}-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+    <br/>
+    <br/>
+  </div>
+{{>back_button}}
+
+{{>save_button}}
+
+  </body>
+</html>
